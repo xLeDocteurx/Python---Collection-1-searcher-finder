@@ -1,19 +1,41 @@
 from os import walk
+# from "./classes.py" import FileObject
+
 path ="./"
-directories = []
+# ignore = [
+# 		".git",
+# 	]
+ignore = ".git"
+
 files = []
 
 class FileObject:
-  def __init__(self, directory, filename, fullpath):
-    self.directory = directory
+  def __init__(self, filename, dirpath, fullpath):
     self.filename = filename
+    self.dirpath = dirpath
     self.fullpath = fullpath
 
 for (dirpath, dirnames, filenames) in walk(path):
-    # for directory in dirnames:
-    #     directories.append(os.path.join(root, directory))
-    #     print os.path.join(root, directory) 
-    for filename in filenames: 
-        # files.append(FileObject(os.path.join(root, directory), os.path.join(root,filename), os.path.join(root, directory) + os.path.join(root,filename) ))
-        print (path.join(dirpath,filename))
+	# # print("Fichiers présent dans le dossier : \"" + dirpath + "\"")
+	# for dirname in dirnames:
+	# 	print("Nous allons : " + dirname)
+	for filename in filenames:
+		# if dirname != ignore:
+		files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
+		# print(dirpath + filename)
+		# # print(filename)
+	
+	# # print("Dossiers présent dans le dossier : " + dirpath)
+	# # print(dirnames)
 
+
+print("-----------------------------------------------")
+print("-----------------------------------------------")
+print("-----------------------------------------------")
+
+for fobj in files:
+	print(fobj.fullpath)
+
+print("-----------------------------------------------")
+print("-----------------------------------------------")
+print("-----------------------------------------------")
