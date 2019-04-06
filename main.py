@@ -18,15 +18,14 @@ class FileObject:
 for (dirpath, dirnames, filenames) in walk(path):
 	# # print("Fichiers présent dans le dossier : \"" + dirpath + "\"")
 	# for dirname in dirnames:
-	# 	print("Nous allons : " + dirname)
 	for filename in filenames:
 		# if dirname != ignore:
+		# 	files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
+		#	print(dirpath + filename)
 		files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
-		# print(dirpath + filename)
-		# # print(filename)
-	
-	# # print("Dossiers présent dans le dossier : " + dirpath)
-	# # print(dirnames)
+
+		# # print("Dossiers présent dans le dossier : \"" + dirpath + "\"")
+		# # print(dirnames)
 
 
 print("-----------------------------------------------")
