@@ -14,7 +14,8 @@ python3 main.py
 
 3 - Après récapitulatif des données entrées pour la recherche un dernier prompt vous demande de confirmer l'action que vous allez effectuer.
 
-## Condition d'utilisation :Avec modération
+## Condition d'utilisation :
+Avec modération
 
 ## Les données sensibles de ce repos :
 Il est joint au projet, à des fins de tests notament, un extrait d'une collection de combos (mail/mdp)
