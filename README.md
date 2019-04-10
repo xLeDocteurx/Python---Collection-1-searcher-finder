@@ -9,7 +9,9 @@ python3 main.py
 ```
 
 1 - Un prompt vous demande de préciser un chemin relatif à la position du main.py. Chemin utilisé comme racine pour la recherche.
+
 2 - Un second prompt vous fait renseigner un pattern pour la recherche. Le prompt comprend les expressions régulières pour les recherches plus poussées.
+
 3 - Après récapitulatif des données entrées pour la recherche un dernier prompt vous demande de confirmer l'action que vous allez effectuer.
 
 ## Condition d'utilisation :Avec modération
