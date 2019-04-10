@@ -22,7 +22,7 @@ def searchInFiles():
 		# with open(fobj.fullpath, encoding="ISO-8859-1") as f:
 		f = open(fobj.fullpath, "r")
 		if f.mode == "r":
-			print('\n'.join(re.findall('\w*'+patternInput+'.\w*:\d*\w*',f.read())))
+			print('\n'.join(re.findall('\w*'+patternInput+'\S*',f.read())))
 
 		#Ancienne methode de recuperation (separée par \n)
 		# with open(fobj.fullpath, "r") as f:
