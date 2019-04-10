@@ -20,10 +20,18 @@ def searchInFiles():
 		print("file:", count, "/", len(files))
 		# with open(fobj.fullpath, encoding="UTF-8") as f:
 		# with open(fobj.fullpath, encoding="ISO-8859-1") as f:
-		with open(fobj.fullpath, "r") as f:
-			for line in f.readlines():
-				if re.search(patternInput, line):
-						lines.append(ResultObject(fobj.fullpath, "x", line))
+		f = open(fobj.fullpath, "r")
+		if f.mode == "r":
+			print('\n'.join(re.findall('\w*'+patternInput+'.\w*:\d*\w*',f.read())))
+
+		#Ancienne methode de recuperation (separée par \n)
+		# with open(fobj.fullpath, "r") as f:
+		# 	for line in f.readlines():
+			# 	if re.search(patternInput, line):
+			# 			x=ResultObject(fobj.fullpath, "x", line)
+			# 			print(x.lineFilePath, " / ", x.lineContent)
+
+
 						# break
 			
             # Piste à explorer plus tard pour récupérer tous les matchs d'un fichier en un appel de fonction
@@ -71,9 +79,6 @@ if doSearch == "y":
 	print("-----------------------------------------------")
 	print("---------- Search results ----------")
 	print("-----------------------------------------------")
-
-	for line in lines:
-		print(line.lineFilePath, " / ", line.lineContent)
 
 	print("-----------------------------------------------")
 	print("-----------", len(lines), "lines in the list --------------")
