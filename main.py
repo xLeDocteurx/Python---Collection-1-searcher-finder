@@ -5,6 +5,12 @@ import time
 from classes import FileObject, ResultObject
 # from functions import listFiles, searchInFiles
 
+# Variables globales
+filesCount = 0
+files = []
+linesCount = 0
+lines = []
+
 # Fonctions à exporter plus tard
 def listFiles(path):
 	for (dirpath, dirnames, filenames) in walk(path):
@@ -13,24 +19,16 @@ def listFiles(path):
 				files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
 
 def searchInFiles():
-	count = 0
+	global filesCount
+	
 	for fobj in files:
-		count = count + 1
-		print("file:", count, "/", len(files))
+		filesCount = filesCount + 1
+		print("file:", filesCount, "/", len(files))
 		f = open(fobj.fullpath, "r")
 		if f.mode == "r":
 			print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
 			# for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
 			# 	lines.append(ResultObject(fobj.fullpath, "x", line))
-
-		# Ancienne methode de recuperation (separée par \n)
-		# with open(fobj.fullpath, "r",-1,"UTF-8") as f:
-		# with open(fobj.fullpath, "r") as f:
-		# # if f.mode == "r":
-		# 	for line in f.readlines():
-		# 		if re.search(patternInput, line):
-		# 				lines.append(ResultObject(fobj.fullpath, "x", line))
-		# 				# print(fobj.fullpath, " / ", line)
 
 userPath = input("Enter a relative path to the parent folder you want to look into ( Or leave blank to search into './' ) : ")
 if userPath == "":
@@ -41,9 +39,6 @@ if patternInput == "":
 	patternInput = "@gmail"
 
 # ignore = input("Enter an ignore folder filter or leave blank")
-
-files = []
-lines = []
 
 startListing = time.time()
 print("-----------------------------------------------")
@@ -63,11 +58,9 @@ print("---------- Search results ----------")
 print("-----------------------------------------------")
 
 searchInFiles()
-# for line in lines:
-# 	print(line.lineFilePath, " / ", line.lineContent)
 
 print("-----------------------------------------------")
-print(len(lines), "lines in the list")
+# print(results, "lines in the list")
 endSearching = time.time()
 print("Searching execution time :", endSearching - startSearching)
 print("-----------------------------------------------")
