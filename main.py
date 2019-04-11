@@ -19,12 +19,17 @@ def searchInFiles():
 		print("file:", count, "/", len(files))
 		# with open(fobj.fullpath, encoding="UTF-8") as f:
 		# with open(fobj.fullpath, encoding="ISO-8859-1") as f:
+		f = open(fobj.fullpath, "r")
+		if f.mode == "r":
+			print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
+
+		# Ancienne methode de recuperation (separée par \n)
 		# with open(fobj.fullpath, "r",-1,"UTF-8") as f:
-		with open(fobj.fullpath, "r") as f:
-			for line in f.readlines():
-				if re.search(patternInput, line):
-						lines.append(ResultObject(fobj.fullpath, "x", line))
-						# print(fobj.fullpath, " / ", line)
+		# with open(fobj.fullpath, "r") as f:
+		# 	for line in f.readlines():
+		# 		if re.search(patternInput, line):
+		# 				lines.append(ResultObject(fobj.fullpath, "x", line))
+		# 				# print(fobj.fullpath, " / ", line)
 
 userPath = input("Enter a relative path to the parent folder you want to look into ( Or leave blank to search into './' ) : ")
 if userPath == "":
