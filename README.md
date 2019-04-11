@@ -19,8 +19,8 @@ Le vol et le fait de porter atteinte aux données personnelles est puni par la l
 ## Les données sensibles de ce repos :
 Il est joint au projet, à des fins de tests notament, un extrait d'une collection de combos (mail/mdp)
 
-Est il légal de les rendre publique ? Non
-L'étaient elle avant que je les joignent à ce repo ? Oui
+- Est il légal de les rendre publique ? Non
+- L'étaient elles avant que je les joignent à ce repo ? Oui
 
 Il m'a suffit de deux recherche google pour trouver plus de 1To de ce genre de donnés en accès libre et en téléchargement direct sur la première page de résultats.
 
