@@ -11,24 +11,35 @@ files = []
 linesCount = 0
 lines = []
 
+errors = []
+
 # Fonctions à exporter plus tard
 def listFiles(path):
 	for (dirpath, dirnames, filenames) in walk(path):
 		for filename in filenames:
-			if filename.endswith(".txt") :
-				files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
+			try:
+				if filename.endswith(".txt"):
+					files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
+			except:
+				errors.append(ErrorObject("searchInFiles Error", "An error occured while opening or reading the file", fobj.fullpath))
 
 def searchInFiles():
 	global filesCount
 	
 	for fobj in files:
-		filesCount = filesCount + 1
-		print("file:", filesCount, "/", len(files), "/", fobj.fullpath)
-		f = open(fobj.fullpath, "r")
-		if f.mode == "r":
-			print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
-			# for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
-			# 	lines.append(ResultObject(fobj.fullpath, "x", line))
+		try:
+			filesCount = filesCount + 1
+			print("file:", filesCount, "/", len(files), "/", fobj.fullpath)
+			f = open(fobj.fullpath, "r")
+			# f = open(fobj.fullpath, "r",-1,"UTF-8")
+			if f.mode == "r":
+				print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
+				# for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
+				# 	lines.append(ResultObject(fobj.fullpath, "x", line))
+				# if re.search(patternInput, line):
+		except:
+			errors.append(ErrorObject("searchInFiles Error", "An error occured while opening or reading the file", fobj.fullpath))
+
 
 userPath = input("Enter a relative path to the parent folder you want to look into ( Or leave blank to search into './' ) : ")
 if userPath == "":
@@ -64,3 +75,9 @@ print("-----------------------------------------------")
 endSearching = time.time()
 print("Searching execution time :", endSearching - startSearching)
 print("-----------------------------------------------")
+
+printErrors = input("Enter a pattern to look for ( Or leave blank to search for '@gmail' ) : ")
+if printErrors == "y" or printErrors == "yes":
+	for error in errors:
+		print(error.errorType)
+		print(error.message)

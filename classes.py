@@ -9,3 +9,8 @@ class ResultObject:
 		self.lineFilePath = lineFilePath
 		self.lineNumber = lineNumber
 		self.lineContent = lineContent
+
+class ErrorObject:
+  def __init__(self, errorType, message)
+    self.errorType = errorType
+    self.message = message
