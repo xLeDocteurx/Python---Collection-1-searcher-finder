@@ -17,15 +17,16 @@ def searchInFiles():
 	for fobj in files:
 		count = count + 1
 		print("file:", count, "/", len(files))
-		# with open(fobj.fullpath, encoding="UTF-8") as f:
-		# with open(fobj.fullpath, encoding="ISO-8859-1") as f:
 		f = open(fobj.fullpath, "r")
 		if f.mode == "r":
 			print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
+			# for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
+			# 	lines.append(ResultObject(fobj.fullpath, "x", line))
 
 		# Ancienne methode de recuperation (separée par \n)
 		# with open(fobj.fullpath, "r",-1,"UTF-8") as f:
 		# with open(fobj.fullpath, "r") as f:
+		# # if f.mode == "r":
 		# 	for line in f.readlines():
 		# 		if re.search(patternInput, line):
 		# 				lines.append(ResultObject(fobj.fullpath, "x", line))
@@ -45,9 +46,8 @@ files = []
 lines = []
 
 startListing = time.time()
-
 print("-----------------------------------------------")
-print("---------- listing all files in \"" + userPath + "\" ----------")
+print("listing all files in \"" + userPath + "\" ")
 
 listFiles(userPath)
 
@@ -56,23 +56,18 @@ endListing = time.time()
 print("Listing execution time :", endListing - startListing)
 print("-----------------------------------------------")
 
-# doSearchString = "Search \"" + doSearchPattern + "\" in all files ? (type 'y' for yes or anything else for no) : "
-doSearch = "y"
-# doSearch = input(doSearchString)
 
-if doSearch == "y":
-	startSearching = time.time()
+startSearching = time.time()
+print("-----------------------------------------------")
+print("---------- Search results ----------")
+print("-----------------------------------------------")
 
-	print("-----------------------------------------------")
-	print("---------- Search results ----------")
-	print("-----------------------------------------------")
+searchInFiles()
+# for line in lines:
+# 	print(line.lineFilePath, " / ", line.lineContent)
 
-	searchInFiles()
-	for line in lines:
-		print(line.lineFilePath, " / ", line.lineContent)
-
-	print("-----------------------------------------------")
-	print("-----------", len(lines), "lines in the list --------------")
-	endSearching = time.time()
-	print("Searching execution time :", endSearching - startSearching)
-	print("-----------------------------------------------")
+print("-----------------------------------------------")
+print(len(lines), "lines in the list")
+endSearching = time.time()
+print("Searching execution time :", endSearching - startSearching)
+print("-----------------------------------------------")
