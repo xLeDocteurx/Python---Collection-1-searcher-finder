@@ -23,7 +23,7 @@ def searchInFiles():
 	
 	for fobj in files:
 		filesCount = filesCount + 1
-		print("file:", filesCount, "/", len(files))
+		print("file:", filesCount, "/", len(files), "/", fobj.fullpath)
 		f = open(fobj.fullpath, "r")
 		if f.mode == "r":
 			print('\n'.join(re.findall('\\w*'+patternInput+'\\S*',f.read())))
