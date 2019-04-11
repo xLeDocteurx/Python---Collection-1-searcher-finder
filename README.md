@@ -3,6 +3,8 @@ Création d'un outils en python permettant de faire des recherches récursive da
 
 C'est donc un moteur de recherche optimisé pour analyser de grands volumes de donnés de type combos
 
+Le but est, à terme, de fournir un outil permettant de mettre en place un service d'audit de sécurité
+
 ## Utilisation :
 ```
 python3 main.py
@@ -12,15 +14,16 @@ python3 main.py
 
 2 - Un second prompt vous fait renseigner un pattern pour la recherche. Le prompt comprend les expressions régulières pour les recherches plus poussées.
 
-3 - Après récapitulatif des données entrées pour la recherche un dernier prompt vous demande de confirmer l'action que vous allez effectuer.
-
 ## Condition d'utilisation :
 Avec modération
+Le vol et le fait de porter atteinte aux données personnelles est puni par la loi
 
 ## Les données sensibles de ce repos :
 Il est joint au projet, à des fins de tests notament, un extrait d'une collection de combos (mail/mdp)
-Est il légal de les rendre publique ? Non
-L'étaient elle avant que je le fasse ? Oui
-Il m'a suffit de deux recherche google pour trouver plus de 1To de ce genre de donnés en accès libre et en téléchargement direct.
+
+- Est il légal de les rendre publique ? Non
+- L'étaient elles avant que je les joignent à ce repo ? Oui
+
+Il m'a suffit de deux recherche google pour trouver plus de 1To de ce genre de donnés en accès libre et en téléchargement direct sur la première page de résultats.
 
 Rappelons le c'est l'utilisation que vous en ferez qui est répréhensible par la loi
