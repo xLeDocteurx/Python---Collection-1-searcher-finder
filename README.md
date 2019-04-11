@@ -3,6 +3,8 @@ Création d'un outils en python permettant de faire des recherches récursive da
 
 C'est donc un moteur de recherche optimisé pour analyser de grands volumes de donnés de type combos
 
+Le but est, à terme, de fournir un outil permettant de mettre en place un service d'audit de sécurité
+
 ## Utilisation :
 ```
 python3 main.py
