@@ -11,6 +11,6 @@ class ResultObject:
 		self.lineContent = lineContent
 
 class ErrorObject:
-  def __init__(self, errorType, message)
+  def __init__(self, errorType, message):
     self.errorType = errorType
     self.message = message

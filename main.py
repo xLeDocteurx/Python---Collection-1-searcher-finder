@@ -37,6 +37,7 @@ def searchInFiles():
 				# for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
 				# 	lines.append(ResultObject(fobj.fullpath, "x", line))
 				# if re.search(patternInput, line):
+			f.close()
 		except:
 			errors.append(ErrorObject("searchInFiles Error", "An error occured while opening or reading the file", fobj.fullpath))
 
@@ -76,7 +77,7 @@ endSearching = time.time()
 print("Searching execution time :", endSearching - startSearching)
 print("-----------------------------------------------")
 
-printErrors = input("Enter a pattern to look for ( Or leave blank to search for '@gmail' ) : ")
+printErrors = input("Do you want to see the execution errors ? ( enter 'yes' or 'y' to print them ) : ")
 if printErrors == "y" or printErrors == "yes":
 	for error in errors:
 		print(error.errorType)
