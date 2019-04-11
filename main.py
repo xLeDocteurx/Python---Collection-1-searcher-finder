@@ -21,7 +21,7 @@ def listFiles(path):
 				if filename.endswith(".txt"):
 					files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
 			except:
-				errors.append(ErrorObject("searchInFiles Error", "An error occured while opening or reading the file", fobj.fullpath))
+				errors.append(ErrorObject("ListFiles Error", "An error occured while looking through the directories/files", fobj.fullpath))
 
 def searchInFiles():
 	global filesCount
