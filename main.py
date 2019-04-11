@@ -2,7 +2,7 @@ from os import walk
 import re
 import time
 
-from classes import FileObject, ResultObject
+from classes import FileObject, ResultObject, ErrorObject
 # from functions import listFiles, searchInFiles
 
 # Variables globales
