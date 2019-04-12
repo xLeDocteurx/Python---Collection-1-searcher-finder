@@ -30,7 +30,7 @@ def searchInFiles():
 	for fobj in files:
 		try:
 			filesCount = filesCount + 1
-			print("file:", filesCount, "/", len(files), "/", int(filesCount * 100 / len(files)), "%")
+			print("file:", filesCount, "/", len(files), "|| percentage: ", int(filesCount * 100 / len(files)), "% || results: ", len(lines))
 			# sys.stdout.write("".join(["Progression :", str(int(filesCount * 100 / len(files))), "%"]))
 			# sys.stdout.flush()
 			# print("Progression :", int(filesCount * 100 / len(files)), "%", end="\r")
@@ -82,8 +82,8 @@ print("Searching execution time :", endSearching - startSearching)
 print("Number of registered lines : ", len(lines))
 print("-----------------------------------------------")
 
-printlines = input("Do you want to see a récap of the results résults ? ( enter 'yes' or 'y' to print them ) : ")
-if printlines == "y" or printlines == "yes":
+printLines = input("Do you want to see a récap of the results résults ? ( enter 'yes' or 'y' to print them ) : ")
+if printLines == "y" or printLines == "yes":
 	for line in lines:
 		print(line.lineContent)
 	print("Number of registered lines : ", len(lines))
