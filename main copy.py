@@ -19,7 +19,7 @@ def listFiles(path):
 	for (dirpath, dirnames, filenames) in walk(path):
 		for filename in filenames:
 			try:
-				if filename.endswith(".txt") or filename.endswith(".sql"):
+				if filename.endswith(".txt"):
 					files.append(FileObject(filename, dirpath, dirpath + "/" + filename))
 			except:
 				errors.append(ErrorObject("ListFiles Error", "An error occured while looking through the directories/files" + fobj.fullpath))
@@ -42,10 +42,9 @@ def searchInFiles():
 				for line in re.findall('\\w*'+patternInput+'\\S*',f.read()):
 					lines.append(ResultObject(files[i].fullpath, "x", line))
 					print(line)
+			f.close()
 		except:
 			errors.append(ErrorObject("searchInFiles Error", "An error occured while opening or reading the file" + files[i].fullpath))
-		finally:
-			f.close()
 
 
 userPath = input("Enter a relative path to the parent folder you want to look into ( Or leave blank to search into './' ) : ")
@@ -57,10 +56,10 @@ if patternInput == "":
 	patternInput = "@gmail"
 
 searchOffset = input("Enter a number wich will serve as an offset for the search ( Or leave blank to start from 0 ) : ")
-if searchOffset != "":
-	filesCount = int(searchOffset)
-else:
+if searchOffset == "":
 	searchOffset = 0
+else:
+	filesCount = int(searchOffset)
 
 # ignore = input("Enter an ignore folder filter or leave blank")
 
